@@ -19,7 +19,8 @@
                                     href="#">ສຳເລັດເເລ້ວ</router-link></li>
                             <li class="breadcrumb-item"><router-link to="/Dailiesdoing" class="text-bold text-dark"
                                     href="#">ກຳລັງເຮັດ</router-link></li>
-
+                                    <li class="breadcrumb-item"><router-link to="/Dailies" class="text-bold text-info"
+                                        href="#">ປະຈຳວັນ</router-link></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

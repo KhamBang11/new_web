@@ -19,6 +19,8 @@
                                     href="#">ສຳເລັດເເລ້ວ</router-link></li>
                             <li class="breadcrumb-item"><router-link to="/Dailiesdoing" class="text-bold text-dark"
                                     href="#">ກຳລັງເຮັດ</router-link></li>
+                                    <li class="breadcrumb-item"><router-link to="/Dailies_recover" class="text-bold text-danger"
+                                        href="#">ກູ້ຄືນ</router-link></li>
 
                         </ol>
                     </div><!-- /.col -->

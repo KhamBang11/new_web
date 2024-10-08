@@ -14,6 +14,7 @@ import SchoolTableComponents from "./components/SchoolTableComponents";
 import DailiesComponents from "./components/DailiesComponents";
 import DailiesComponentsdone from "./components/DailiesComponentsdone";
 import DailiesComponentsdoing from "./components/DailiesComponentsdoing";
+import DailiesComponents_recover from "./components/DailiesComponents_recover";
 const routes =[
     {
         path:'/',
@@ -90,6 +91,11 @@ const routes =[
         path:'/Dailiesdoing',
         name:'DailiesComponentsdoing',
         component:DailiesComponentsdoing,
+        meta:{requireAuth:true}
+    },{
+        path:'/Dailies_recover',
+        name:'DailiesComponents_recover',
+        component:DailiesComponents_recover,
         meta:{requireAuth:true}
     }
 ];

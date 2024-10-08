@@ -103,7 +103,14 @@
 
             </ul>
           </li>
-
+          <li class="nav-item">
+            <a href="#" @click="ConfrmDelete" class="nav-link">
+              <i class="nav-icon text-danger fas fa-power-off"></i>
+              <p>
+                ອອກຈາກລະບົບ
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -112,7 +119,45 @@
   </aside>
 </template>
 <script>
+import Swal from 'sweetalert2';
 export default {
-  name: "SidebarC"
+  name: "SidebarC",
+  methods:{
+    async ConfrmDelete() {
+            Swal.fire({
+                title: 'ຕ້ອງການອອກຈາກລະບົບເເທ້ບໍ?',
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText: 'ຍົກເລີກ',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ຕົກລົງ'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.HandleLogout();
+                }
+            });
+        },
+
+        async HandleLogout(){
+          localStorage.removeItem('token');
+          this.$router.push('/');
+          this.showAlertsuccess();
+        },
+        
+
+        async showAlertsuccess(){
+          Swal.fire({
+                    title: 'ອອກຈາກລະບົບເເລ້ວ',
+                    icon: 'success',
+                    timer: 800,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                })
+        }
+
+  }
 }
 </script>
