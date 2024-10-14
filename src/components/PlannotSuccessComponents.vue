@@ -200,7 +200,7 @@ export default {
     }, methods: {
         async Showplans() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-plan-not-success');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-plan-not-success');
                 if (Array.isArray(respone.data)) {
                     this.plans = respone.data;
                 } else {
@@ -215,7 +215,7 @@ export default {
                 if (this.name === "") {
                     alert("ຊື່ເເຜນການວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-plan', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-plan', {
                         name: this.name,
                         percent: this.percent
                     });
@@ -253,7 +253,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-plan?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-plan?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.plans=data;
@@ -268,7 +268,7 @@ export default {
             params.append('name', this.searchQuery
             );
 
-            fetch(`http://localhost:3000/api/search-plan-notsuccess?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-plan-notsuccess?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.plans = data;
@@ -296,7 +296,7 @@ export default {
         },
         async Deleteplan(plan_Id) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-plan/${plan_Id}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-plan/${plan_Id}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -328,7 +328,7 @@ export default {
         async Showdatatoedit(plan_Id) {
             this.plan_Id = plan_Id;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_planid/${plan_Id}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_planid/${plan_Id}`);
                 this.updatename = respone.data.name,
                     this.updatepercent = respone.data.percent
                 this.active = respone.data.active
@@ -342,7 +342,7 @@ export default {
 
         async Update_data() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-plan/${this.plan_Id}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-plan/${this.plan_Id}`, {
                     name: this.updatename,
                     percent: this.updatepercent,
                     active: this.active,

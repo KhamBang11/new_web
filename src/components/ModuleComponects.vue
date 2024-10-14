@@ -184,7 +184,7 @@ export default {
     }, methods: {
         async Showmodules() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-module');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-module');
                 if (Array.isArray(respone.data)) {
                     this.modules = respone.data;
                 } else {
@@ -199,7 +199,7 @@ export default {
                 if (this.modulename === "") {
                     alert("ຊື່ເນື້ອຫາວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-module', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-module', {
                         module_name: this.modulename
                     });
                     console.log(respone.data);
@@ -234,7 +234,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-admin?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-admin?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.modules=data;
@@ -248,7 +248,7 @@ export default {
             const params = new URLSearchParams();
             params.append('module_name', this.searchQuery);
 
-            fetch(`http://localhost:3000/api/search-module?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-module?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.modules = data;
@@ -279,7 +279,7 @@ export default {
         },
         async DeleteAdmin(Module_ID) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-module/${Module_ID}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-module/${Module_ID}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -311,7 +311,7 @@ export default {
         async Showdatatoedit(Module_ID) {
             this.Module_ID = Module_ID;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_moduleid/${Module_ID}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_moduleid/${Module_ID}`);
                 this.updatemodulename = respone.data.module_name
                    
             } catch (error) {
@@ -323,7 +323,7 @@ export default {
 
         async Update_data() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-module/${this.Module_ID}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-module/${this.Module_ID}`, {
                     module_name: this.updatemodulename,
                   
                 });

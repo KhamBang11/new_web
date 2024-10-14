@@ -218,7 +218,7 @@ export default {
     }, methods: {
         async ShowAdmins() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-admin');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-admin');
                 if (Array.isArray(respone.data)) {
                     this.admins = respone.data;
                 } else {
@@ -233,7 +233,7 @@ export default {
                 if (this.username === "") {
                     alert("ຊື່ຜູ້ນຳໃຊ້ວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-admin', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-admin', {
                         username: this.username,
                         email: this.email,
                         password: this.password,
@@ -275,7 +275,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-admin?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-admin?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.admins=data;
@@ -292,7 +292,7 @@ export default {
                 'phone', this.searchQuery
             );
 
-            fetch(`http://localhost:3000/api/search-admin?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-admin?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.admins = data;
@@ -320,7 +320,7 @@ export default {
         },
         async DeleteAdmin(Admin_Id) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-admin/${Admin_Id}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-admin/${Admin_Id}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -352,7 +352,7 @@ export default {
         async Showdatatoedit(Admin_Id) {
             this.Admin_Id = Admin_Id;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_id/${Admin_Id}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_id/${Admin_Id}`);
                 this.updateusername = respone.data.username,
                     this.updateemail = respone.data.email,
                     this.updatepassword = "",
@@ -366,7 +366,7 @@ export default {
 
         async Update_data() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-user/${this.Admin_Id}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-user/${this.Admin_Id}`, {
                     username: this.updateusername,
                     email: this.updateemail,
                     password: this.updatepassword,

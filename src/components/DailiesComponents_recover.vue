@@ -162,7 +162,7 @@ export default {
     }, methods: {
         async Showdailies() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-dailie_recover');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-dailie_recover');
                 if (Array.isArray(respone.data)) {
                     this.dailies = respone.data;
                 } else {
@@ -177,7 +177,7 @@ export default {
         //         if (this.dailies_name === "") {
         //             alert("ຊື່ເເຜນການວ່າງເປົ່າ");
         //         } else {
-        //             const respone = await axios.post('http://localhost:3000/api/create-dailie', {
+        //             const respone = await axios.post('https://node-2i60.onrender.com/api/create-dailie', {
         //                 dailies_name: this.dailies_name,
         //                 dailies_date: this.dailies_date,
         //                 dailies_stime: this.dailies_stime,
@@ -218,7 +218,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-dailie?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-dailie?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.dailies=data;
@@ -232,7 +232,7 @@ export default {
             const params = new URLSearchParams();
             params.append('dailies_date', this.searchQuery);
 
-            fetch(`http://localhost:3000/api/search-dailie_recover?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-dailie_recover?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.dailies = data;
@@ -260,7 +260,7 @@ export default {
         },
         async recoverdailies(dailies_Id) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-dailie_recover/${dailies_Id}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-dailie_recover/${dailies_Id}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ກູ້ຄືນສຳເລັດ',
@@ -306,7 +306,7 @@ export default {
         },
         async Deletedailie(dailies_Id) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-dailie_really/${dailies_Id}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-dailie_really/${dailies_Id}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',

@@ -515,7 +515,7 @@ export default {
     }, methods: {
         async Showincomes() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-income');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-income');
                 if (Array.isArray(respone.data)) {
                     this.incomes = respone.data;
                 } else {
@@ -528,7 +528,7 @@ export default {
 
         async Showexpenses() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-expense_limit');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-expense_limit');
                 if (Array.isArray(respone.data)) {
                     this.expenses = respone.data;
                 } else {
@@ -549,7 +549,7 @@ export default {
                 if (this.income === "") {
                     alert("ຊື່ເນື້ອຫາວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-income', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-income', {
                         income: this.income,
                         income_reason: this.inremark,
                         status: this.instatus
@@ -582,7 +582,7 @@ export default {
                 if (this.expense === "") {
                     alert("ຊື່ເນື້ອຫາວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-expense', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-expense', {
                         expense: this.expense,
                         expense_reason: this.exremark,
                         status: this.exstatus
@@ -625,7 +625,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-admin?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-admin?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.incomes=data;
@@ -639,7 +639,7 @@ export default {
             const params = new URLSearchParams();
             params.append('income', this.searchInQuery, 'income_reason', this.searchInQuery, 'status', this.searchInQuery);
 
-            fetch(`http://localhost:3000/api/search-income?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-income?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.incomes = data;
@@ -659,7 +659,7 @@ export default {
             const params = new URLSearchParams();
             params.append('expense', this.searchInQuery, 'expense_reason', this.searchInQuery, 'status', this.searchInQuery);
 
-            fetch(`http://localhost:3000/api/search-expense?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-expense?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.expenses = data;
@@ -690,7 +690,7 @@ export default {
         },
         async DeleteAdmin(income_ID) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-income/${income_ID}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-income/${income_ID}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -738,7 +738,7 @@ export default {
         },
         async DeleteExpense(Expense_ID) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-expense/${Expense_ID}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-expense/${Expense_ID}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -772,7 +772,7 @@ export default {
         async Showindatatoedit(income_ID) {
             this.income_ID = income_ID;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_incomeid/${income_ID}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_incomeid/${income_ID}`);
                 this.upincome = respone.data.income,
                     this.upinremark = respone.data.income_reason,
                     this.upinstatus = respone.data.status
@@ -786,7 +786,7 @@ export default {
 
         async Update_incomedata() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-income/${this.income_ID}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-income/${this.income_ID}`, {
                     income: this.upincome,
                     income_reason: this.upinremark,
                     status: this.upinstatus
@@ -819,7 +819,7 @@ export default {
         async Showexdatatoedit(Expense_ID) {
             this.Expense_ID = Expense_ID;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_expenseid/${Expense_ID}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_expenseid/${Expense_ID}`);
                 this.upexpense = respone.data.expense,
                     this.upexremark = respone.data.expense_reason,
                     this.upexstatus = respone.data.status
@@ -833,7 +833,7 @@ export default {
 
         async Update_expensedata() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-expense/${this.Expense_ID}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-expense/${this.Expense_ID}`, {
                     expense: this.upexpense,
                     expense_reason: this.upexremark,
                     status: this.upexstatus

@@ -374,7 +374,7 @@ export default {
     }, methods: {
         async Showschools() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-schooltable');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-schooltable');
                 if (Array.isArray(respone.data)) {
                     this.schools = respone.data;
                 } else {
@@ -389,7 +389,7 @@ export default {
                 if (this.day === "") {
                     alert("ວັນຫຍັງເນາະ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-schooltable', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-schooltable', {
                         time_one: this.time_one,
                         time_two: this.time_two,
                         time_three: this.time_three,
@@ -430,7 +430,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-admin?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-admin?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.schools=data;
@@ -444,7 +444,7 @@ export default {
             const params = new URLSearchParams();
             params.append('day', this.searchQuery);
 
-            fetch(`http://localhost:3000/api/search-schooltable?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-schooltable?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.schools = data;
@@ -475,7 +475,7 @@ export default {
         },
         async DeleteAdmin(school_ID) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-schooltable/${school_ID}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-schooltable/${school_ID}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -507,7 +507,7 @@ export default {
         async Showdatatoedit(school_ID) {
             this.school_ID = school_ID;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_schooltableid/${school_ID}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_schooltableid/${school_ID}`);
                 this.updatetime_one = respone.data.time_one
                 this.updatetime_two = respone.data.time_two
                 this.updatetime_three = respone.data.time_three
@@ -525,7 +525,7 @@ export default {
 
         async Update_data() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-schooltable/${this.school_ID}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-schooltable/${this.school_ID}`, {
                     time_one: this.updatetime_one,
                     time_two: this.updatetime_two,
                     time_three: this.updatetime_three,

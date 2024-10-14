@@ -224,7 +224,7 @@ export default {
     }, methods: {
         async Shownotes() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-note');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-note');
                 if (Array.isArray(respone.data)) {
                     this.notes = respone.data;
                 } else {
@@ -236,7 +236,7 @@ export default {
         },
         async Showmodules() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-module');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-module');
                 if (Array.isArray(respone.data)) {
                     this.modules = respone.data;
                 } else {
@@ -251,7 +251,7 @@ export default {
                 if (this.module_id === "") {
                     alert("ຊື່ຜູ້ນຳໃຊ້ວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-note', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-note', {
                         content: this.note_name,
                         module_id: this.module_id,
                     });
@@ -288,7 +288,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-note?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-note?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.notes=data;
@@ -303,7 +303,7 @@ export default {
             params.append('content', this.searchQuery
             );
 
-            fetch(`http://localhost:3000/api/search-note?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-note?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.notes = data;
@@ -320,7 +320,7 @@ export default {
             params.append('module_id', this.searchmodule_ids
             );
 
-            fetch(`http://localhost:3000/api/search-module_id?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-module_id?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.notes = data;
@@ -351,7 +351,7 @@ export default {
         },
         async Deletenote(Note_Id) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-note/${Note_Id}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-note/${Note_Id}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -383,7 +383,7 @@ export default {
         async Showdatatoedit(Note_Id) {
             this.Note_Id = Note_Id;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_noteid/${Note_Id}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_noteid/${Note_Id}`);
                 this.updatemodule_id = respone.data.module_id,
                     this.updatemodule_idname = respone.data.module_name,
                     this.updatenote_name = respone.data.content
@@ -396,7 +396,7 @@ export default {
 
         async Update_data() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-note/${this.Note_Id}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-note/${this.Note_Id}`, {
                     note_name: this.updatenote_name,
                     module_id: this.updatemodule_id
                 });

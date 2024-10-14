@@ -382,7 +382,7 @@ export default {
     }, methods: {
         async Showdailies() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-dailie');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-dailie');
                 if (Array.isArray(respone.data)) {
                     this.dailies = respone.data;
                 } else {
@@ -397,7 +397,7 @@ export default {
                 if (this.dailies_name === "") {
                     alert("ຊື່ເເຜນການວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-dailie', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-dailie', {
                         dailies_name: this.dailies_name,
                         dailies_date: this.dailies_date,
                         dailies_stime: this.dailies_stime,
@@ -438,7 +438,7 @@ export default {
         //     'email',this.searchQuery,
         //     'phone',this.searchQuery
         // );
-        //     fetch(`http://localhost:3000/api/search-dailie?${params.toString()}`)
+        //     fetch(`https://node-2i60.onrender.com/api/search-dailie?${params.toString()}`)
         //     .then((respone)=>respone.json())
         //     .then((data)=>{
         //         this.dailies=data;
@@ -452,7 +452,7 @@ export default {
             const params = new URLSearchParams();
             params.append('dailies_date', this.searchQuery);
 
-            fetch(`http://localhost:3000/api/search-dailie?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-dailie?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.dailies = data;
@@ -480,7 +480,7 @@ export default {
         },
         async Deletedailie(dailies_Id) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-dailie/${dailies_Id}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-dailie/${dailies_Id}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -512,7 +512,7 @@ export default {
         async Showdatatoedit(dailies_Id) {
             this.dailies_Id = dailies_Id;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_dailieid/${dailies_Id}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_dailieid/${dailies_Id}`);
                 this.updatedailies_name = respone.data.dailies_name,
                     this.updatedailies_date = respone.data.dailies_date,
                     this.updatedailies_stime = respone.data.dailies_stime,
@@ -528,7 +528,7 @@ export default {
 
         async Update_data() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-dailie/${this.dailies_Id}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-dailie/${this.dailies_Id}`, {
                     dailies_name:this.updatedailies_name,
                     dailies_date: this.updatedailies_date,
                     dailies_stime: this.updatedailies_stime,

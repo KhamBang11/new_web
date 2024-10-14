@@ -286,7 +286,7 @@ export default {
         
         async Showexpenses() {
             try {
-                const respone = await axios.get('http://localhost:3000/api/select-expense');
+                const respone = await axios.get('https://node-2i60.onrender.com/api/select-expense');
                 if (Array.isArray(respone.data)) {
                     this.expenses = respone.data;
                 } else {
@@ -305,7 +305,7 @@ export default {
                 if (this.expense === "") {
                     alert("ຊື່ເນື້ອຫາວ່າງເປົ່າ");
                 } else {
-                    const respone = await axios.post('http://localhost:3000/api/create-expense', {
+                    const respone = await axios.post('https://node-2i60.onrender.com/api/create-expense', {
                         expense: this.expense,
                         expense_reason: this.exremark,
                         status: this.exstatus
@@ -342,7 +342,7 @@ export default {
             const params = new URLSearchParams();
             params.append('expense', this.searchInQuery, 'expense_reason', this.searchInQuery, 'status', this.searchInQuery);
 
-            fetch(`http://localhost:3000/api/search-expense?${params.toString()}`)
+            fetch(`https://node-2i60.onrender.com/api/search-expense?${params.toString()}`)
                 .then((respone) => respone.json())
                 .then((data) => {
                     this.expenses = data;
@@ -374,7 +374,7 @@ export default {
         },
         async DeleteExpense(Expense_ID) {
             try {
-                const respone = await axios.delete(`http://localhost:3000/api/delete-expense/${Expense_ID}`);
+                const respone = await axios.delete(`https://node-2i60.onrender.com/api/delete-expense/${Expense_ID}`);
                 console.log(respone.data);
                 Swal.fire({
                     title: 'ລົບສຳເລັດ',
@@ -408,7 +408,7 @@ export default {
         async Showexdatatoedit(Expense_ID) {
             this.Expense_ID = Expense_ID;
             try {
-                const respone = await axios.get(`http://localhost:3000/api/select_expenseid/${Expense_ID}`);
+                const respone = await axios.get(`https://node-2i60.onrender.com/api/select_expenseid/${Expense_ID}`);
                 this.upexpense = respone.data.expense,
                     this.upexremark = respone.data.expense_reason,
                     this.upexstatus = respone.data.status
@@ -422,7 +422,7 @@ export default {
 
         async Update_expensedata() {
             try {
-                const respone = await axios.put(`http://localhost:3000/api/update-expense/${this.Expense_ID}`, {
+                const respone = await axios.put(`https://node-2i60.onrender.com/api/update-expense/${this.Expense_ID}`, {
                     expense: this.upexpense,
                     expense_reason: this.upexremark,
                     status: this.upexstatus

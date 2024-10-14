@@ -191,7 +191,7 @@ export default {
   
   methods:{
     async Sumincome() {
-      await axios.get('http://localhost:3000/api/select-sumincome').then(respone => {
+      await axios.get('https://node-2i60.onrender.com/api/select-sumincome').then(respone => {
         this.sum_income = respone.data.sum_income;
       }).catch(error => {
         console.log("errro", error);
@@ -199,14 +199,14 @@ export default {
 
     },
     async Sumincome_today() {
-      await axios.get('http://localhost:3000/api/select-sumincome_today').then(respone => {
+      await axios.get('https://node-2i60.onrender.com/api/select-sumincome_today').then(respone => {
         this.sum_income_today = respone.data.sum_income;
       }).catch(error => {
         console.log("errro", error);
       });
 
     },async Sumexpense() {
-      await axios.get('http://localhost:3000/api/select-sumexpense').then(respone => {
+      await axios.get('https://node-2i60.onrender.com/api/select-sumexpense').then(respone => {
         this.sum_expense = respone.data.sum_expense;
       }).catch(error => {
         console.log("errro", error);
@@ -215,7 +215,7 @@ export default {
     },
 
     async Sumexpense_today() {
-      await axios.get('http://localhost:3000/api/select-sumexpense_today').then(respone => {
+      await axios.get('https://node-2i60.onrender.com/api/select-sumexpense_today').then(respone => {
         this.sumexpense_today = respone.data.sum_expense;
       }).catch(error => {
         console.log("errro", error);
